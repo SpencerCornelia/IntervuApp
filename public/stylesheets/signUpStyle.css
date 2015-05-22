@@ -1,0 +1,39 @@
+div#whole {
+	margin-top: 170px;
+	border: none;
+}
+
+body { 
+  background: url(http://www.demo620.altervista.org/home/images/stories/demo/demo3.jpg);
+  no-repeat center center fixed;   
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#headline {
+  text-align: center;
+  font-size: 25px;
+  text-indent: -44em;
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+}
+
+#formEmail {
+	background-color: transparent;
+	color: white;
+}
+
+#formPassword {
+	background-color: transparent;
+	margin-top: 10px;
+	color: white;
+}
+
+#button {
+	background-color: transparent;
+	margin-top: 10px;
+	margin-left: 120px;
+	color: white;
+}
