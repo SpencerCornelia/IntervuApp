@@ -1,0 +1,38 @@
+body { 
+  background: url(http://images5.fanpop.com/image/photos/30500000/Cool-Headphone-Pictures-music-30593585-500-375.jpg);
+  no-repeat center center fixed;   
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.button1 {
+	background-color: transparent;
+	margin-top: 150px;
+	margin-left: 300px;
+	color: white;
+	width: 220px;
+	height: 40px;
+	border-color: #00BFFF;
+}
+
+.button2 {
+	background-color: transparent;
+	margin-top: 150px;
+	margin-left: 40px;
+	color: white;
+	width: 220px;
+	height: 40px;
+	border-color: #870207;
+}
+
+.letter {
+	margin-left: 140px;
+	text-shadow: -1px 0 white, 0 1px white,
+      1px 0 white, 0 -1px white;
+    font-size: 20px;
+}
+
+
+

@@ -1,0 +1,40 @@
+div#whole {
+	margin-top: 20px;
+	border: none;
+}
+
+body { 
+  background: url(http://ih.constantcontact.com/fs141/1101863099008/img/1190.jpg);
+  no-repeat center center fixed;   
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#headline {
+  font-size: 40px;
+  margin-left: 100px;
+  margin-top: 50px;
+/*  text-indent: -30em;*/
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+
+#formEmail {
+	background-color: transparent;
+	color: white;
+}
+
+#formPassword {
+	background-color: transparent;
+	margin-top: 10px;
+	color: white;
+}
+
+#button {
+	background-color: transparent;
+	margin-top: 10px;
+	margin-left: 120px;
+	color: white;
+}
