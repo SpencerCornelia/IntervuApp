@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Intervu</title>
-	<!-- Latest compiled and minified CSS -->
+	<title>Login</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 <!-- Optional theme -->
@@ -10,8 +11,30 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../public/stylesheets/loginStyle.css">
 </head>
 <body>
-Login
+<div class="container">
+    <div class="row" id="headline">
+    	<div class="col-xs-1">
+        Login
+    	</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-0.25" id="whole">
+                <div class="panel-body">
+                    <form>
+                        <div class="signupForm">
+                            <input type="email" class="form-control" id="formEmail" placeholder="Enter email">
+                        </div>
+                        <div class="signupForm">
+                            <input type="password" class="form-control" id="formPassword" placeholder="Password">
+                        </div>
+                        <button id="button">Submit</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
