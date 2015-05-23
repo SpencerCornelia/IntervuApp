@@ -21,12 +21,12 @@
     <div class="row">
         <div class="col-xs-4 col-xs-offset-4" id="whole">
                 <div class="panel-body">
-                    <form>
+                    <form method="POST" action="/signup">
                         <div class="signupForm">
-                            <input type="email" class="form-control" id="formEmail" placeholder="Enter email">
+                            <input type="email" name="email" class="form-control" id="formEmail" placeholder="Enter email">
                         </div>
                         <div class="signupForm">
-                            <input type="password" class="form-control" id="formPassword" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="formPassword" placeholder="Password">
                         </div>
                         <button id="button">Submit</button>
                     </form>
