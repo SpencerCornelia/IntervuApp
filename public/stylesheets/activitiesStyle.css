@@ -1,0 +1,69 @@
+#beatles {
+	background-image: url(../images/rsz_beatles.png);
+	width: 200px;
+	height: 170px;
+}
+
+#kanye {
+	background-image: url(../images/rsz_kanye.png);
+	width: 200px;
+	height: 170px;
+}
+
+#drake {
+	background-image: url(../images/rsz_drake.png);
+	width: 200px;
+	height: 170px;
+}
+
+#wu {
+	background-image: url(../images/rsz_wu.png);
+	width: 200px;
+	height: 170px;
+}
+
+#bey {
+	background-image: url(../images/rsz_bey.png);
+	width: 200px;
+	height: 170px;
+}
+
+#eminem {
+	background-image: url(../images/rsz_eminem.png);
+	width: 200px;
+	height: 170px;
+}
+
+#headerRow {
+	margin-left: 20px;
+}
+
+body {
+	background-color: #87BCF5;
+}
+
+.panel-default {
+	margin-top: 20px;
+	background-color: transparent;
+}
+
+#searchAlbum {
+	padding-left: 70px;
+}
+
+#panelBody {
+	padding-left: 50px;
+}
+
+.btn-default {
+	color: #7fa0c5;
+}
+
+
+
+
+
+
+
+
+

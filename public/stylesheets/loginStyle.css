@@ -4,7 +4,7 @@ div#whole {
 }
 
 body { 
-  background: url(http://ih.constantcontact.com/fs141/1101863099008/img/1190.jpg);
+  background: url(../images/guitar.png);
   no-repeat center center fixed;   
   -webkit-background-size: cover;
   -moz-background-size: cover;
