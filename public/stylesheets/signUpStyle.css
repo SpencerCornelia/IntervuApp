@@ -1,5 +1,5 @@
 div#whole {
-	margin-top: 170px;
+	margin-top: 120px;
 	border: none;
 }
 
@@ -14,7 +14,7 @@ body {
 
 #headline {
   text-align: center;
-  font-size: 25px;
+  font-size: 50px;
   text-indent: -44em;
   color: transparent;
   -webkit-text-stroke: 1px black;

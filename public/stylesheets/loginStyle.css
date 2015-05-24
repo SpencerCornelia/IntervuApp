@@ -4,7 +4,7 @@ div#whole {
 }
 
 body { 
-  background: url(../images/guitar.png);
+  background: url(../images/jt.jpg);
   no-repeat center center fixed;   
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -13,8 +13,8 @@ body {
 }
 
 #headline {
-  font-size: 40px;
-  margin-left: 100px;
+  font-size: 60px;
+  margin-left: 860px;
   margin-top: 50px;
 /*  text-indent: -30em;*/
   color: white;
