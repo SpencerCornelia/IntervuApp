@@ -34,15 +34,14 @@ app.get("/signup", function (req, res) {
 
 app.post("/signup", function (req, res) {
 	console.log(req.body);
-	var newUser = req.body.user;
-	  db.User.createSecure(newUser, function (err, user) {
+	var newUser = req.body.user
+	  db.User.createSecure(newUser.email, newUser.password, function (err, user) {
 	    if (user) {
-	      res.send(user);
+	      res.redirect("/activities");
 	    } else {
 	      res.redirect("/signup");
 	    }
 	  });
-	res.redirect("/activities");
 });
 
 app.get("/login", function (req, res) {
@@ -52,9 +51,10 @@ app.get("/login", function (req, res) {
 
 app.post("/login", function (req, res) {
 	var user = req.body.user;
+	//make sure user is form info
+	console.log(user);
 
-  db.User.authenticate(user,
-  function (err, user) {
+  db.User.authenticate(user.email, user.password, function (err, user) {
     if (!err) {
       res.redirect("/activities");
     } else {
@@ -67,6 +67,11 @@ app.get("/activities", function (req, res) {
 	var activitiesPath = path.join(views, "activities.html");
 	res.sendFile(activitiesPath);
 });
+
+app.get("/contactme", function (req, res) {
+	var contactPath = path.join(views, "contactMe.html");
+	res.sendFile(contactPath);
+})
 
 app.listen(3000, function () {
 	console.log("running");
