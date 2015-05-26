@@ -14,21 +14,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <!-- CSS -->
 <link rel="stylesheet" href="../public/stylesheets/activitiesStyle.css">
-<script src="user.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="../public/javascripts/app.js"></script>
+<script src="../public/javascripts/data.js"></script>
 </head>
 <body>
 <div class="container-fluid">
 <div class="row" id="headerRow">
-    <div class="col-lg-2" id="beatles"></div>
-    <div class="col-lg-2" id="kanye"></div>
-    <div class="col-lg-2" id="drake"></div>
-    <div class="col-lg-2" id="wu"></div>
-    <div class="col-lg-2" id="bey"></div>
-    <div class="col-lg-2" id="eminem"></div>
+    <div class="col col-md-2" id="beatles"><img src="../public/images/rsz_beatles.png"></div>
+    <div class="col col-md-2" id="kanye"><img src="../public/images/rsz_kanye.png"></div>
+    <div class="col col-md-2" id="drake"><img src="../public/images/rsz_drake.png"></div>
+    <div class="col col-md-2" id="wu"><img src="../public/images/rsz_wu.png"></div>
+    <div class="col col-md-2" id="bey"><img src="../public/images/rsz_bey.png"></div>
+    <div class="last col-md-2" id="eminem"><img src="../public/images/rsz_eminem.png"></div>
 </div>
 </div>
 
-
+<div class="row">
     <div class="col-lg-4 col-lg-offset-4">
         <div class="panel panel-default">
             <div class="panel-body" id="panelBody">
@@ -41,6 +43,39 @@
             </div>
         </div>
     </div>
+</div> 
 
+<div class="row">
+<ul class="list-group" id="album-ul">
+</ul>
+</div>
 </body>
+<script type="text/template" id="album-template">
+    <% _.each(collection, function (item) { %>
+        <li class="list-album-item"><img src="<%= item.albumPic %>">
+            <span class="label-artist-name"><%= item.artist %> : </span>
+            <span class="label-artist-albumName"><%= item.albumName %></span>
+        </li>
+    <% }); %>
+</script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

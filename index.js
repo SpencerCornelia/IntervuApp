@@ -4,8 +4,10 @@ var express = require("express"),
 	mongoose = require("mongoose"),
 	_ = require("underscore"),
 	path = require("path"),
+	db = require("./models"),
 	bcrypt = require("bcrypt");
 
+//use app for routes
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -32,8 +34,16 @@ app.get("/signup", function (req, res) {
 
 app.post("/signup", function (req, res) {
 	console.log(req.body);
+	var newUser = req.body.user;
+	  db.User.createSecure(newUser, function (err, user) {
+	    if (user) {
+	      res.send(user);
+	    } else {
+	      res.redirect("/signup");
+	    }
+	  });
 	res.redirect("/activities");
-})
+});
 
 app.get("/login", function (req, res) {
 	var loginPath = path.join(views, "login.html");
@@ -41,14 +51,22 @@ app.get("/login", function (req, res) {
 });
 
 app.post("/login", function (req, res) {
-	console.log(req.body);
-	res.redirect("/activities");
-})
+	var user = req.body.user;
+
+  db.User.authenticate(user,
+  function (err, user) {
+    if (!err) {
+      res.redirect("/activities");
+    } else {
+      res.redirect("/login");
+    }
+  })
+});
 
 app.get("/activities", function (req, res) {
 	var activitiesPath = path.join(views, "activities.html");
 	res.sendFile(activitiesPath);
-})
+});
 
 app.listen(3000, function () {
 	console.log("running");
