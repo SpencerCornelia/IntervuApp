@@ -68,10 +68,18 @@ app.get("/activities", function (req, res) {
 	res.sendFile(activitiesPath);
 });
 
+app.post("/activities/:id", function (req, res) {
+	// set the value of the id
+	var targetId = req.params.id;
+	console.log(targetId);
+	// find item in the array matching the id
+	// var targetItem = _.findWhere(interviews, {id: targetId});
+})
+
 app.get("/contactme", function (req, res) {
 	var contactPath = path.join(views, "contactMe.html");
 	res.sendFile(contactPath);
-})
+});
 
 app.listen(3000, function () {
 	console.log("running");
