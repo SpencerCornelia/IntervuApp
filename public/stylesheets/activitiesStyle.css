@@ -1,34 +1,3 @@
-#beatles {
-	width: 200px;
-	height: 170px;
-}
-
-#kanye {
-	width: 200px;
-	height: 170px;
-}
-
-#drake {
-	width: 200px;
-	height: 170px;
-}
-
-#wu {
-	width: 200px;
-	height: 170px;
-}
-
-#bey {
-	width: 200px;
-	height: 170px;
-}
-
-#eminem {
-	width: 200px;
-	height: 170px;
-}
-
-
 #headerRow {
 	margin-left: 20px;
 }
@@ -57,12 +26,20 @@ body {
 .list-album-item img {
 	height: 70px;
 	width: 70px;
+	margin-top: 10px;
 }
 
 .list-album-item {
 	margin-left: 70px;
 }
 
+.favorites {
+	margin-top: 37px;
+}
+
+#album-ul {
+	margin-left: -100px;
+}
 
 
 

@@ -82,4 +82,29 @@ select{
 .form-style-1 .required{
     color:red;
 }
+
+.btn-twitter {
+    background-color: #4da7de;
+    color: white;
+}
+
+.btn-facebook {
+    background-color: #3e5b98;
+    color: white;
+}
+
+.btn-linkedin {
+    background-color: #3371b7;
+    color: white;
+}
+
+.btn-instagram {
+    background-color: #9c7c6e;
+    color: white;
+}
+
+.btn-youtube {
+    background-color: #e02a20;
+    color: white;
+}
 </style>
