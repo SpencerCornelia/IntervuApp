@@ -5,6 +5,7 @@ var express = require("express"),
 	_ = require("underscore"),
 	path = require("path"),
 	db = require("./models"),
+	session = require("express-session"),
 	bcrypt = require("bcrypt");
 
 //use app for routes
@@ -14,13 +15,41 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static(__dirname, '/public'));
 
-var views = path.join(__dirname, "views");	
+app.use(session({
+  secret: 'Spencer secret',
+  resave: false,
+  saveUninitialized: true
+}))
 
-// app.use("/", function (req, res, next) {
-// 	req.login = function (user) {
-// 		req.session.userId
-// 	}
-// })
+
+var loginHelpers = function (req, res, next) {
+
+  req.login = function (user) {
+    req.session.userId = user._id;
+    req.user = user;
+    return user;
+  };
+
+  req.logout = function () {
+    req.session.userId = null;
+    req.user = null;
+  };
+
+  req.currentUser = function (cb) {
+    var userId = req.session.userId;
+    db.User.
+      findOne({
+        _id: userId
+      }, cb);
+  };
+
+  // careful to have this
+  next(); // real important
+};
+
+app.use("/", loginHelpers)
+
+var views = path.join(__dirname, "views");	
 
 app.get("/", function (req, res) {
 	var homePath = path.join(views, "home.html");
@@ -33,15 +62,16 @@ app.get("/signup", function (req, res) {
 });
 
 app.post("/signup", function (req, res) {
-	console.log(req.body);
 	var newUser = req.body.user
 	  db.User.createSecure(newUser.email, newUser.password, function (err, user) {
 	    if (user) {
+	      req.login(user);
 	      res.redirect("/activities");
 	    } else {
 	      res.redirect("/signup");
 	    }
 	  });
+	req.currentUser();  
 });
 
 app.get("/login", function (req, res) {
@@ -51,12 +81,11 @@ app.get("/login", function (req, res) {
 
 app.post("/login", function (req, res) {
 	var user = req.body.user;
-	//make sure user is form info
-	console.log(user);
 
   db.User.authenticate(user.email, user.password, function (err, user) {
     if (!err) {
-      res.redirect("/activities");
+      req.login(user);
+      res.redirect("/activities");	
     } else {
       res.redirect("/login");
     }
@@ -69,17 +98,19 @@ app.get("/activities", function (req, res) {
 });
 
 app.post("/activities/:id", function (req, res) {
-	// set the value of the id
-	var targetId = req.params.id;
-	console.log(targetId);
-	// find item in the array matching the id
-	// var targetItem = _.findWhere(interviews, {id: targetId});
+	var clickId = req.params.id;
+	res.send(clickId);
 })
 
 app.get("/contactme", function (req, res) {
 	var contactPath = path.join(views, "contactMe.html");
 	res.sendFile(contactPath);
 });
+
+app.get("/logout", function (req, res) {
+	req.logout();
+	res.redirect("/");
+})
 
 app.listen(3000, function () {
 	console.log("running");
