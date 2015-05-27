@@ -18,19 +18,10 @@
 <script src="../public/javascripts/app.js"></script>
 <script src="../public/javascripts/data.js"></script>
 </head>
-<body>
-<div class="container-fluid">
-<div class="row" id="headerRow">
-    <div class="col col-md-2" id="beatles"><img src="../public/images/rsz_beatles.png"></div>
-    <div class="col col-md-2" id="kanye"><img src="../public/images/rsz_kanye.png"></div>
-    <div class="col col-md-2" id="drake"><img src="../public/images/rsz_drake.png"></div>
-    <div class="col col-md-2" id="wu"><img src="../public/images/rsz_wu.png"></div>
-    <div class="col col-md-2" id="bey"><img src="../public/images/rsz_bey.png"></div>
-    <div class="last col-md-2" id="eminem"><img src="../public/images/rsz_eminem.png"></div>
-</div>
-</div>
-
+<body>   
+    
 <div class="row">
+    <button type="submit" class="btn btn-default favorites">My favorite albums</button>     
     <div class="col-lg-4 col-lg-offset-4">
         <div class="panel panel-default">
             <div class="panel-body" id="panelBody">
@@ -45,20 +36,59 @@
     </div>
 </div> 
 
-<div class="row">
-<ul class="list-group" id="album-ul">
-</ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="panel panel-default">
+                <div class="panel-body" id="panelBody">
+                    <ul class="list-group" id="album-ul">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-xs-4 col-xs-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body" id="userBody">
+                        Hi
+                        <form method"GET" action="/logout">
+                            <button class="logoutBtn">Log Out</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+
 </body>
+<!-- template for album pictures/info -->
 <script type="text/template" id="album-template">
     <% _.each(collection, function (item) { %>
-        <li class="list-album-item"><img src="<%= item.albumPic %>">
+        <ul class="list-album-item" data-id="<%= item.id %>">
+            <img src="<%= item.albumPic %>" onclick="Interviews.add(event)">
             <span class="label-artist-name"><%= item.artist %> : </span>
             <span class="label-artist-albumName"><%= item.albumName %></span>
-        </li>
+        </ul>
+    <% }); %>
+</script>
+
+<!-- template for interviews -->
+<script type="text/template" id="interview-template">
+    <% _.each(collection, function (item) { %>
+        <ul class="list-album-item">
+            <div class="label-interview-video"><iframe width="300" height="200" src="<%= item.video %>">
+            </iframe></div>
+        </ul>
     <% }); %>
 </script>
 </html>
+
+
 
 
 
