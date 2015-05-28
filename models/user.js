@@ -1,6 +1,12 @@
 var mongoose = require("mongoose");
 var bcrypt = require("bcrypt");
 var salt = bcrypt.genSaltSync(10);
+var Album = require("./albums");
+
+var Schema = mongoose.Schema;
+
+
+//look up reference, one-to-many with mongoose
 
 //only connected to mongoose in index.js file in library_app
 // mongoose.connect("mongodb://localhost/intervu_app");
@@ -17,16 +23,10 @@ var userSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	//may need to add these two things on my signup page
-	// first_name: {
-	// 	type: String,
-	// 	default: ""
-	// }
-	// last_name {
-	// 	type: String,
-	// 	default: ""
-	// }
-	//need favorite albums or artists here 
+	favoriteAlbums: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Album'
+  }]
 });
 
 
@@ -56,7 +56,6 @@ userSchema.statics.authenticate = function(email, password, cb) {
      email: email // find user by email
     }, // then if user exists with that email
     function(err, user){
-      console.log(user);
       if (user === null){
         throw new Error("Username does not exist");
       } else if (user.checkPassword(password)){ // verify password
