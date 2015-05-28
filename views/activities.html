@@ -16,20 +16,21 @@
 <link rel="stylesheet" href="../public/stylesheets/activitiesStyle.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="../public/javascripts/app.js"></script>
-<script src="../public/javascripts/data.js"></script>
+<script src="../models/data.js"></script>
 </head>
 <body>   
-    
+ 
+<!-- Search button and my favorite albums button -->    
 <div class="row">
     <button type="submit" class="btn btn-default favorites">My favorite albums</button>     
     <div class="col-lg-4 col-lg-offset-4">
         <div class="panel panel-default">
             <div class="panel-body" id="panelBody">
-                <form class="form-inline">
+                <form class="form-inline" id="ourForm">
                     <div class="form-group">
                         <input type="text" class="form-control" id="searchAlbum" placeholder="Search Album">
                     </div>
-                    <button type="submit" class="btn btn-default">Search</button>
+                    <button type="submit" class="btn btn-default searchBtn" name="searchBar">Search</button>
                 </form>
             </div>
         </div>
@@ -37,6 +38,8 @@
 </div> 
 
 
+
+<!-- This is where the albums get rendered to -->
 <div class="container">
     <div class="row">
         <div class="col-xs-6">
@@ -47,11 +50,16 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+<!-- Log out button for user to click -->
         <div class="container">
             <div class="col-xs-4 col-xs-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-body" id="userBody">
-                        Hi
                         <form method"GET" action="/logout">
                             <button class="logoutBtn">Log Out</button>
                         </form>
@@ -73,6 +81,7 @@
             <img src="<%= item.albumPic %>" onclick="Interviews.add(event)">
             <span class="label-artist-name"><%= item.artist %> : </span>
             <span class="label-artist-albumName"><%= item.albumName %></span>
+            <button class="favoriteBtn">Favorite</button>
         </ul>
     <% }); %>
 </script>

@@ -31,14 +31,13 @@ var albums = [
 
 // first video is Take Care
 var interviews = [
-	{ id: 0, video: "https://www.youtube.com/embed/twNV2ItVBcY"},
-	{ id: 0, video: "https://www.youtube.com/embed/LPG3pBOcrMs"},
+	{ id: 0, album: "Take Care", video: "https://www.youtube.com/embed/twNV2ItVBcY"},
+	{ id: 0, album: "Take Care", video: "https://www.youtube.com/embed/LPG3pBOcrMs"},
 	{ id: 1, video: "https://www.youtube.com/embed/VSllPXm2Eao"},
 	{ id: 1, video: "https://www.youtube.com/embed/oqHxvAcE13k"},
 	{ id: 2, video: "https://www.youtube.com/embed/Cjt029chOvA"},
 	{ id: 2, video: "https://www.youtube.com/embed/Lv8PdI477ks"}
 ]
-
 
 var loginHelpers = function (req, res, next) {
 
@@ -122,12 +121,7 @@ app.get("/albums", function (req, res) {
 //keep getting the error here i believe
 app.get("/activities/:id", function (req, res) {
 	res.send(interviews);
-
 })
-
-// app.get("/activities/:search", function (req, res) {
-
-// })
 
 app.get("/contactme", function (req, res) {
 	var contactPath = path.join(views, "contactMe.html");
@@ -143,14 +137,15 @@ app.get("/albums", function (req, res) {
 	res.send(JSON.stringify(albums));
 })
 
+app.get("/search/:album", function (req, res) {
+	res.send(interviews[0]);
+})
+
 app.listen(3000, function () {
 	console.log("running");
 })
 
 
-//db.Interview.find({url:""}, function (err,url) {
-	
-// })
 
 
 
