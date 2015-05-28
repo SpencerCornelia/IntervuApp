@@ -21,6 +21,24 @@ app.use(session({
   saveUninitialized: true
 }))
 
+// DATA
+var albums = [
+	{ id: 0, albumPic: "../public/images/take_care.jpg", artist: "Drake", albumName: "Take Care"},
+	{ id: 1, albumPic: "../public/images/dark_fantasy.jpg", artist: "Kanye West", albumName: "My Beautiful Dark Twisted Fantasy"},
+	{ id: 2, albumPic: "../public/images/ready_to_die.jpg", artist: "Notorious B.I.G", albumName: "Ready To Die"},
+]
+
+
+// first video is Take Care
+var interviews = [
+	{ id: 0, video: "https://www.youtube.com/embed/twNV2ItVBcY"},
+	{ id: 0, video: "https://www.youtube.com/embed/LPG3pBOcrMs"},
+	{ id: 1, video: "https://www.youtube.com/embed/VSllPXm2Eao"},
+	{ id: 1, video: "https://www.youtube.com/embed/oqHxvAcE13k"},
+	{ id: 2, video: "https://www.youtube.com/embed/Cjt029chOvA"},
+	{ id: 2, video: "https://www.youtube.com/embed/Lv8PdI477ks"}
+]
+
 
 var loginHelpers = function (req, res, next) {
 
@@ -97,10 +115,19 @@ app.get("/activities", function (req, res) {
 	res.sendFile(activitiesPath);
 });
 
-app.post("/activities/:id", function (req, res) {
-	var clickId = req.params.id;
-	res.send(clickId);
+app.get("/albums", function (req, res) {
+	res.send(JSON.stringify(albums));
 })
+
+//keep getting the error here i believe
+app.get("/activities/:id", function (req, res) {
+	res.send(interviews);
+
+})
+
+// app.get("/activities/:search", function (req, res) {
+
+// })
 
 app.get("/contactme", function (req, res) {
 	var contactPath = path.join(views, "contactMe.html");
@@ -112,10 +139,18 @@ app.get("/logout", function (req, res) {
 	res.redirect("/");
 })
 
+app.get("/albums", function (req, res) {
+	res.send(JSON.stringify(albums));
+})
+
 app.listen(3000, function () {
 	console.log("running");
 })
 
+
+//db.Interview.find({url:""}, function (err,url) {
+	
+// })
 
 
 
