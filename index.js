@@ -141,7 +141,7 @@ app.get("/search/:album", function (req, res) {
 	res.send(interviews[0]);
 })
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
 	console.log("running");
 })
 
