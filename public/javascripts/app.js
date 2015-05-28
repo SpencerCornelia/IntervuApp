@@ -23,9 +23,11 @@ function View() {};
 View.init = function() {
   $("#ourForm").on("submit", function (event) {
     event.preventDefault();
-    var form = $(".form-control").val();
-    console.log(form);
-    // View.searchedAlbums(searchQuery);
+    $.post("/search/album", $("#ourForm").serialize())
+      .done(function(res){
+        var albums = JSON.parse(res);
+        console.log(albums);
+      });
   })
 }
 
@@ -42,18 +44,6 @@ View.renderInterviews = function (items, parentId, templateId) {
   var renderedTemplate = compiledTemplate({collection: items});
   $("#" + parentId).html(renderedTemplate);
 };
-
-View.searchedAlbums = function (phrase) {
-  console.log(phrase);
-  // $.ajax({
-  //   url: '/search/' + phrase,
-  //   type: 'GET',
-  //   success: function(res) {
-  //     View.renderInterviews(interviews, "album-ul", "interview-template");
-  //   }
-  // })
-}
-
 
 
 //ajax from catchphrase.ly

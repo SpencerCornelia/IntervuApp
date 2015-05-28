@@ -33,10 +33,10 @@ var albums = [
 var interviews = [
 	{ id: 0, album: "Take Care", video: "https://www.youtube.com/embed/twNV2ItVBcY"},
 	{ id: 0, album: "Take Care", video: "https://www.youtube.com/embed/LPG3pBOcrMs"},
-	{ id: 1, video: "https://www.youtube.com/embed/VSllPXm2Eao"},
-	{ id: 1, video: "https://www.youtube.com/embed/oqHxvAcE13k"},
-	{ id: 2, video: "https://www.youtube.com/embed/Cjt029chOvA"},
-	{ id: 2, video: "https://www.youtube.com/embed/Lv8PdI477ks"}
+	{ id: 1, album: "My Beautiful Dark Twisted Fantasy", video: "https://www.youtube.com/embed/VSllPXm2Eao"},
+	{ id: 1, album: "My Beautiful Dark Twisted Fantasy", video: "https://www.youtube.com/embed/oqHxvAcE13k"},
+	{ id: 2, album: "Ready To Die", video: "https://www.youtube.com/embed/Cjt029chOvA"},
+	{ id: 2, album: "Ready To Die", video: "https://www.youtube.com/embed/Lv8PdI477ks"}
 ]
 
 var loginHelpers = function (req, res, next) {
@@ -137,8 +137,14 @@ app.get("/albums", function (req, res) {
 	res.send(JSON.stringify(albums));
 })
 
-app.get("/search/:album", function (req, res) {
-	res.send(interviews[0]);
+app.post("/search/album", function (req, res) {
+	// var findInt = db.Interview.find({album: "Take Care"})
+	// res.send(JSON.stringify(findInt));
+	// db.Interview.find({
+	// 	album: "Take Care"
+	// })
+	console.log(req.body);
+	res.send(JSON.stringify(interviews[0]["video"]));
 })
 
 app.listen(process.env.PORT || 3000, function () {

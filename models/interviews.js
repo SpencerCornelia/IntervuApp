@@ -2,7 +2,11 @@ var mongoose = require("mongoose");
 
 
 var interviewSchema = new mongoose.Schema({
-	url: {
+	album: {
+		type: String,
+		required: true
+	},
+	video: {
 		type: String,
 		required: true
 	}
