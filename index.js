@@ -152,8 +152,12 @@ app.post("/search/album", function (req, res) {
 			console.log("not Take Care");
 		}
 	}
+})
 
-	// res.send(interviews[0].video);
+app.post("/click/interviews", function (req, res) {
+	var reqBody = req.body;
+	var keys = Object.keys(reqBody)[0];
+	console.log(keys);
 })
 
 app.listen(process.env.PORT || 3000, function () {

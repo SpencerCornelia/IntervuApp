@@ -11,9 +11,24 @@ $(function () {
 
 
 
-  $("body").on("click", ".list-album-item img", function (){ 
-    console.log(albums);
-  })
+  $("body").on("click", ".list-album-item img", function (event){ 
+    var clickEvent = event.target.src;
+    var changed = clickEvent.substr(21);
+    var better = ".." + changed
+    for (var i = 0; i < albums.length; i++) {
+      if (better === albums[i].albumPic) {
+        var newArray = []
+        newArray.push(albums[i]);
+        View.renderInterviews(newArray, "album-ul", "interview-template");
+        // console.log(interviews[i].albumPic);
+        // View.renderAlbums(interviews.video1, "album-ul", "albums-template");
+      } else {
+        console.log("else statement");
+      }
+    }
+  });
+
+
 });
 
 
@@ -21,7 +36,6 @@ function Albums() {};
 Albums.all = function() {
   $.get("/albums", function (res) {
     var albums = JSON.parse(res);
-    console.log(albums);
     View.renderAlbums(albums, "album-ul", "album-template");
   })
 }

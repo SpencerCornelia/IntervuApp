@@ -78,7 +78,7 @@
 <script type="text/template" id="album-template">
     <% _.each(collection, function (item) { %>
         <ul class="list-album-item" data-id="<%= item.id %>">
-            <img src="<%= item.albumPic %>" onclick="Interviews.add(event)">
+            <img src="<%= item.albumPic %>">
             <span class="label-artist-name"><%= item.artist %> : </span>
             <span class="label-artist-albumName"><%= item.albumName %></span>
             <button class="favoriteBtn">Favorite</button>
@@ -90,7 +90,7 @@
 <script type="text/template" id="interview-template">
     <% _.each(collection, function (item) { %>
         <ul class="list-album-item">
-            <div class="label-interview-video"><iframe width="300" height="200" src="<%= item.video %>">
+            <div class="label-interview-video"><iframe width="300" height="200" src="<%= item.video1 %>">
 
             </iframe></div>
         </ul>
