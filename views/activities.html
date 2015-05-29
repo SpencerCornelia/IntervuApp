@@ -101,7 +101,7 @@
 <script type="text/template" id="albums-template">
     <% _.each(collection, function (item) { %>
         <ul class="list-album-item">
-            <img src="<%= item.albumPic %>" onclick="Interviews.add(event)">
+            <img src="<%= item.albumPic %>">
             <span class="label-artist-name"><%= item.artist %> : </span>
             <span class="label-artist-albumName"><%= item.albumName %></span>
             <button class="favoriteBtn">Favorite</button>

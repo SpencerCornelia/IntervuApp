@@ -8,6 +8,12 @@ $(function () {
 
   Albums.all();
   View.init();
+
+
+
+  $("body").on("click", ".list-album-item img", function (){ 
+    console.log(albums);
+  })
 });
 
 
@@ -60,14 +66,18 @@ View.renderInterviews = function (items, parentId, templateId) {
 
 //ajax from catchphrase.ly
 function Interviews() {};
-Interviews.add = function (event) {
-  var interviewId = $(event.target).closest(".list-album-item").data().id;
-  //interviewId is working
-  $.ajax({
-    url: '/activities/' + interviewId,
-    type: 'GET',
-    success: function(res) {
-      View.renderInterviews(interviews, "album-ul", "interview-template");
-    }
-  });
-};  
+// Interviews.add = function (event) {
+//   var interviewId = $(event.target).closest(".list-album-item").data().id;
+//   $.ajax({
+//     url: '/activities/' + interviewId,
+//     type: 'GET',
+//     success: function(res) {
+//       View.renderInterviews(interviews, "album-ul", "interview-template");
+//     }
+//   });
+// };  
+
+
+Interviews.add = function (event, item) {
+  console.log(item);
+}
