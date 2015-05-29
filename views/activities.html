@@ -22,7 +22,7 @@
  
 <!-- Search button and my favorite albums button -->    
 <div class="row">
-    <button type="submit" class="btn btn-default favorites">My favorite albums</button>     
+    <button type="submit" class="btn btn-default favorites">My favorite albums</button>   
     <div class="col-lg-4 col-lg-offset-4">
         <div class="panel panel-default">
             <div class="panel-body" id="panelBody">
@@ -50,7 +50,8 @@
                 </div>
             </div>
         </div>
-
+    </div>    
+</div>
 
 
 
@@ -81,7 +82,7 @@
             <img src="<%= item.albumPic %>">
             <span class="label-artist-name"><%= item.artist %> : </span>
             <span class="label-artist-albumName"><%= item.albumName %></span>
-            <button class="favoriteBtn">Favorite</button>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
         </ul>
     <% }); %>
 </script>
@@ -91,7 +92,7 @@
     <% _.each(collection, function (item) { %>
         <ul class="list-album-item">
             <div class="label-interview-video"><iframe width="300" height="200" src="<%= item.video1 %>">
-
+            <div class="label-interview-video"><iframe width="300" height="200" src="<%= item.video2 %>">
             </iframe></div>
         </ul>
     <% }); %>
@@ -104,7 +105,7 @@
             <img src="<%= item.albumPic %>">
             <span class="label-artist-name"><%= item.artist %> : </span>
             <span class="label-artist-albumName"><%= item.albumName %></span>
-            <button class="favoriteBtn">Favorite</button>
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>  
         </ul>
     <% }); %>
 </script>

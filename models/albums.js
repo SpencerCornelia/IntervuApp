@@ -4,7 +4,7 @@ var interviewSchema = require("./interviews").interviewSchema;
 var albumSchema = new mongoose.Schema({
 	albumPic: {
 		type: String,
-		required: true,
+		required: true
 	},
 	artist: {
 		type: String,
@@ -14,7 +14,13 @@ var albumSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	interviews: [interviewSchema]
+	// interviews: [interviewSchema]
+	video1: {
+		type: String
+	},
+	video2: {
+		type: String
+	}
 });
 
 

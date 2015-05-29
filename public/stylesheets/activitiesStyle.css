@@ -42,6 +42,10 @@ body {
 	margin-left: -100px;
 }
 
+.glyphicon:hover {
+	color: yellow;
+}
+
 
 
 
