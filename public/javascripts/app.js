@@ -15,6 +15,7 @@ function Albums() {};
 Albums.all = function() {
   $.get("/albums", function (res) {
     var albums = JSON.parse(res);
+    console.log(albums);
     View.renderAlbums(albums, "album-ul", "album-template");
   })
 }
@@ -23,12 +24,23 @@ function View() {};
 View.init = function() {
   $("#ourForm").on("submit", function (event) {
     event.preventDefault();
-    $.post("/search/album", $("#ourForm").serialize())
+    var form = $("#ourForm").serialize();
+    var searchForm = form.substr(12);
+    $.post("/search/album", searchForm)
       .done(function(res){
-        var albums = JSON.parse(res);
-        console.log(albums);
+        var newArray = [];
+        newArray.push(res);
+        console.log(newArray);
+        View.searchedAlbums(newArray, "album-ul", "albums-template");
       });
   })
+}
+
+View.searchedAlbums = function (album, parentId, templateId) {
+  var templateHTML = $("#" + templateId).html();
+  var compiledTemplate = _.template(templateHTML);
+  var renderedTemplate = compiledTemplate({collection: album});
+  $("#" + parentId).html(renderedTemplate);
 }
 
 View.renderAlbums = function (items, parentId, templateId) {

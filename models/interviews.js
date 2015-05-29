@@ -2,11 +2,23 @@ var mongoose = require("mongoose");
 
 
 var interviewSchema = new mongoose.Schema({
-	album: {
+	albumName: {
 		type: String,
 		required: true
 	},
-	video: {
+	artist: {
+		type: String,
+		required: true
+	},
+	albumPic: {
+		type: String,
+		required: true
+	},
+	video1: {
+		type: String,
+		required: true
+	},
+	video2: {
 		type: String,
 		required: true
 	}

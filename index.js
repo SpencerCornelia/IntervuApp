@@ -23,20 +23,17 @@ app.use(session({
 
 // DATA
 var albums = [
-	{ id: 0, albumPic: "../public/images/take_care.jpg", artist: "Drake", albumName: "Take Care"},
-	{ id: 1, albumPic: "../public/images/dark_fantasy.jpg", artist: "Kanye West", albumName: "My Beautiful Dark Twisted Fantasy"},
-	{ id: 2, albumPic: "../public/images/ready_to_die.jpg", artist: "Notorious B.I.G", albumName: "Ready To Die"},
+	{ id: 0, albumPic: "../public/images/take_care.jpg", artist: "Drake", albumName: "Take Care", video1: "https://www.youtube.com/embed/twNV2ItVBcY", video2: "https://www.youtube.com/embed/LPG3pBOcrMs"},
+	{ id: 1, albumPic: "../public/images/dark_fantasy.jpg", artist: "Kanye West", albumName: "My Beautiful Dark Twisted Fantasy", video1: "https://www.youtube.com/embed/VSllPXm2Eao", video2: "https://www.youtube.com/embed/oqHxvAcE13k"},
+	{ id: 2, albumPic: "../public/images/ready_to_die.jpg", artist: "Notorious B.I.G", albumName: "Ready To Die", video1: "https://www.youtube.com/embed/Cjt029chOvA", video2: "https://www.youtube.com/embed/Lv8PdI477ks"}
 ]
 
 
 // first video is Take Care
 var interviews = [
-	{ id: 0, album: "Take Care", video: "https://www.youtube.com/embed/twNV2ItVBcY"},
-	{ id: 0, album: "Take Care", video: "https://www.youtube.com/embed/LPG3pBOcrMs"},
-	{ id: 1, album: "My Beautiful Dark Twisted Fantasy", video: "https://www.youtube.com/embed/VSllPXm2Eao"},
-	{ id: 1, album: "My Beautiful Dark Twisted Fantasy", video: "https://www.youtube.com/embed/oqHxvAcE13k"},
-	{ id: 2, album: "Ready To Die", video: "https://www.youtube.com/embed/Cjt029chOvA"},
-	{ id: 2, album: "Ready To Die", video: "https://www.youtube.com/embed/Lv8PdI477ks"}
+	{ id: 0, artist: "Drake", albumPic: "../public/images/take_care.jpg", albumName: "Take Care", video1: "https://www.youtube.com/embed/twNV2ItVBcY", video2: "https://www.youtube.com/embed/LPG3pBOcrMs"},
+	{ id: 1, artist: "Kanye West", albumPic: "../public/images/dark_fantasy.jpg", albumName: "My Beautiful Dark Twisted Fantasy", video1: "https://www.youtube.com/embed/VSllPXm2Eao", video2: "https://www.youtube.com/embed/oqHxvAcE13k"},
+	{ id: 2, artist: "Notorious B.I.G", albumPic: "../public/images/ready_to_die.jpg", albumName: "Ready To Die", video1: "https://www.youtube.com/embed/Cjt029chOvA", video2: "https://www.youtube.com/embed/Lv8PdI477ks"},
 ]
 
 var loginHelpers = function (req, res, next) {
@@ -143,8 +140,20 @@ app.post("/search/album", function (req, res) {
 	// db.Interview.find({
 	// 	album: "Take Care"
 	// })
-	console.log(req.body);
-	res.send(JSON.stringify(interviews[0]["video"]));
+	var reqBody = req.body;
+	// res.send(JSON.stringify(interviews[0]["video"]));
+	// interviews.album = req.body;
+	var keys = Object.keys(reqBody)[0];
+	for (var i = 0; i < interviews.length; i++) {
+		if (interviews[i].albumName === keys) {
+			res.send(interviews[i]);
+		}
+		else {
+			console.log("not Take Care");
+		}
+	}
+
+	// res.send(interviews[0].video);
 })
 
 app.listen(process.env.PORT || 3000, function () {
