@@ -16,10 +16,12 @@ var albumSchema = new mongoose.Schema({
 	},
 	// interviews: [interviewSchema]
 	video1: {
-		type: String
+		type: String,
+		required: true
 	},
 	video2: {
-		type: String
+		type: String,
+		required: true
 	}
 });
 

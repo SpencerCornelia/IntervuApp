@@ -36,6 +36,30 @@ var interviews = [
 	{ id: 2, artist: "Notorious B.I.G", albumPic: "../public/images/ready_to_die.jpg", albumName: "Ready To Die", video1: "https://www.youtube.com/embed/Cjt029chOvA", video2: "https://www.youtube.com/embed/Lv8PdI477ks"},
 ]
 
+var addAlbums = function(albumList) {
+   for (var i = 0; i < albumList.length; i++) {
+       db.Album.create({
+           albumPic: albumList[i].albumPic,
+           artist: albumList[i].artist,
+           albumName: albumList[i].albumName,
+           video1: albumList[i].video1,
+           video2: albumList[i].video2,
+       });
+   }
+};
+
+var addInterviews = function(interviewList) {
+   for (var i = 0; i < interviewList.length; i++) {
+       db.Interview.create({
+           albumPic: interviewList[i].albumPic,
+           artist: interviewList[i].artist,
+           albumName: interviewList[i].albumName,
+           video1: interviewList[i].video1,
+           video2: interviewList[i].video2
+       });
+   }
+};
+
 var loginHelpers = function (req, res, next) {
 
   req.login = function (user) {

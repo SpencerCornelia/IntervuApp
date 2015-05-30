@@ -9,6 +9,7 @@
     "express": "^4.12.4",
     "express-session": "^1.11.2",
     "mongoose": "^4.0.3",
+    "sequelize-cli": "^1.7.0",
     "underscore": "^1.8.3"
   },
   "name": "Intervu",
