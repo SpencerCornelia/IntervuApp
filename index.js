@@ -119,6 +119,7 @@ app.get("/login", function (req, res) {
 
 app.post("/login", function (req, res) {
 	var user = req.body.user;
+	console.log(user);
 
   db.User.authenticate(user.email, user.password, function (err, user) {
     if (!err) {
@@ -127,7 +128,9 @@ app.post("/login", function (req, res) {
     } else {
       res.redirect("/login");
     }
-  })
+  }, function(){
+  	res.redirect("/login");
+  });
 });
 
 app.get("/activities", function (req, res) {
