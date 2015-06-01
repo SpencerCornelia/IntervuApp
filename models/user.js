@@ -50,17 +50,20 @@ userSchema.statics.createSecure = function (email, password, cb) {
 };
 
 
-userSchema.statics.authenticate = function(email, password, cb) {
+userSchema.statics.authenticate = function(email, password, cb, cb2) {
   // find just one user with the email 
   this.findOne({
      email: email // find user by email
     }, // then if user exists with that email
     function(err, user){
       if (user === null){
-        throw new Error("Username does not exist");
+        cb2();
+        console.log("user does not exist")
+        // Remove v----this----v line to allow for callback to prevent app from crashing
+        // throw new Error("Username does not exist");
       } else if (user.checkPassword(password)){ // verify password
         cb(null, user); // send back that user
-      }
+      } 
     })
  };
 
