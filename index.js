@@ -162,14 +162,9 @@ app.get("/albums", function (req, res) {
 })
 
 app.post("/search/album", function (req, res) {
-	// var findInt = db.Interview.find({album: "Take Care"})
-	// res.send(JSON.stringify(findInt));
-	// db.Interview.find({
-	// 	album: "Take Care"
-	// })
+
 	var reqBody = req.body;
-	// res.send(JSON.stringify(interviews[0]["video"]));
-	// interviews.album = req.body;
+
 	var keys = Object.keys(reqBody)[0];
 	for (var i = 0; i < interviews.length; i++) {
 		if (interviews[i].albumName === keys) {
@@ -189,29 +184,5 @@ app.post("/click/interviews", function (req, res) {
 
 app.listen(process.env.PORT || 3000, function () {
 	console.log("running");
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
