@@ -1,3 +1,5 @@
+//this was my first project as part of General Assembly's WDI program
+
 User Stories
 
 A User will be able to choose between signing up, logging in, reading about the app, and contacting me.
